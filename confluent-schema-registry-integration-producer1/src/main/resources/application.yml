@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        supplier-out-0:
+          destination: sensor-topic
+          producer:
+            useNativeEncoding: true
+      kafka:
+        binder:
+          brokers: 
+          - b-1.qyangmsk10.a8jn4i.c22.kafka.us-east-1.amazonaws.com
+          - b-3.qyangmsk10.a8jn4i.c22.kafka.us-east-1.amazonaws.com
+          - b-2.qyangmsk10.a8jn4i.c22.kafka.us-east-1.amazonaws.com
+          defaultBrokerPort: 9094
+          configuration:
+            security.protocol: SSL
+          producerProperties:
+            value:
+              subject:
+                name:
+                  1strategy: io.confluent.kafka.serializers.subject.TopicNameStrategy
+        bindings:
+          supplier-out-0:
+            producer:
+              configuration:
+                value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+                schema.registry.url: http://ae6c958223d3f422a80113de0a0f4678-da71d92bee2304c3.elb.us-east-1.amazonaws.com
+
+server.port: 9009
