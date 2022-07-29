@@ -1,4 +1,3 @@
-# spring-stream-cloud-kafka-sample
 == Schema evolution with Confluent Schema Registry
 
 A collection of Spring Boot applications to demonstrate schema evolution using Spring Cloud Stream and Confluent Schema Registry.
